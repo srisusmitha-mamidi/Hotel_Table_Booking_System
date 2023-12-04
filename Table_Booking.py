@@ -1,17 +1,7 @@
 class Table_Booking:
     def __init__(self,tables):
         self.tables=tables 
-    def allocate(self,c):          # Checking if allocation of single table is possible if remaining seats are less than 2 after allocation
-        for i in range(len(self.tables)):
-            if self.tables[i]>=c:
-                remaining_seats=self.tables[i]-c
-                if remaining_seats<=2:
-                    self.tables[i]=-1
-                    print(self.tables)
-                    print("*** Table", i+1, "is allocated ***")
-                    return True
-
-    def allocate_sequentially_clubbed_tables(self,c):
+    def allocate_sequentially_clubbed_tables(self,c): # Best possible table/sequential clubbing of tables is allowed as per the needs
         n=len(self.tables)
         current_sum=0
         idx1=1
